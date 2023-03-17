@@ -3,7 +3,6 @@ from . import app
 from flask import jsonify, render_template
 
 
-
 class InvalidAPIUsage(Exception):
     status_code = 400
 
