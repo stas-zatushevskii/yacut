@@ -5,9 +5,8 @@ from settings import Config
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
-app.config.from_object(Config)
+app.config.from_object(Config, default='sqlite:///db.sqlite3')
 db = SQLAlchemy(app)
-
+print(app.config)
 
 from . import error_handlers, views, forms, api_views
