@@ -19,7 +19,7 @@ def index_view():
     form = URLForm()
     if form.validate_on_submit():
         new_href = form.custom_id.data
-        if letters_validator(new_href) == False:
+        if letters_validator(new_href) is False:
             flash('Указано недопустимое имя для короткой ссылки')
             return render_template('index.html', form=form)
         if URLMap.query.filter_by(short=new_href).first():

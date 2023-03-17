@@ -1,7 +1,4 @@
 from flask import jsonify, request, url_for
-from random import randrange
-import random
-import string
 
 from . import app, db
 from .models import URLMap
@@ -35,7 +32,7 @@ def create_url():
         'custom_id' not in data or data['custom_id'] is None or data['custom_id'].strip() == ''
     ):
         data['custom_id'] = get_unique_short_id()
-    if letters_validator(data['custom_id']) == False:
+    if letters_validator(data['custom_id']) is False:
         raise InvalidAPIUsage('Указано недопустимое имя для короткой ссылки')
 
     data = request.get_json()
