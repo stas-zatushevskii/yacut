@@ -1,7 +1,7 @@
 import random
 import string
 
-from flask import flash, redirect, render_template, abort
+from flask import flash, redirect, render_template
 
 from . import app, db
 from .forms import URLForm

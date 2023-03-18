@@ -14,7 +14,10 @@ def get_new_url(short_id):
     if url is None:
         raise InvalidAPIUsage('Указанный id не найден', 404)
     result = url.to_dict()
-    return jsonify({'url': result["original"]}), 200
+    return jsonify(
+        {
+            'url': result["original"]
+        }), 200
 
 
 @app.route('/api/id/', methods=['POST'])

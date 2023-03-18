@@ -1,7 +1,7 @@
 import string
 
 
-def letters_validator(obj: string) -> bool :
+def letters_validator(obj: string) -> bool:
     if obj is not None:
         letters_and_digits = string.ascii_letters + string.digits
         if len(obj) >= 16:
