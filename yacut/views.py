@@ -1,5 +1,6 @@
 import random
 import string
+
 from flask import flash, redirect, render_template, abort
 
 from . import app, db
@@ -8,9 +9,12 @@ from .models import URLMap
 from .validators import letters_validator
 
 
+LETTERS = string.ascii_letters
+DIGITS = string.digits
+
+
 def get_unique_short_id():
-    letters_and_digits = string.ascii_letters + string.digits
-    rand_string = ''.join(random.sample(letters_and_digits, 6))
+    rand_string = ''.join(random.sample(LETTERS + DIGITS, 6))
     return rand_string
 
 
@@ -39,7 +43,6 @@ def index_view():
 
 @app.route('/<string:id>')
 def url_view(id):
-    url = URLMap.query.filter_by(short=id).first()
+    url = URLMap.query.first_or_404(id)
     if url is not None:
         return redirect(url.original)
-    abort(404)
