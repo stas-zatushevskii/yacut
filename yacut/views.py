@@ -9,12 +9,11 @@ from .models import URLMap
 from .validators import letters_validator
 
 
-LETTERS = string.ascii_letters
-DIGITS = string.digits
+ROW_SIZE = 6
 
 
 def get_unique_short_id():
-    rand_string = ''.join(random.sample(LETTERS + DIGITS, 6))
+    rand_string = ''.join(random.sample(string.digits + string.ascii_letters, ROW_SIZE))
     return rand_string
 
 

@@ -16,7 +16,7 @@ def get_new_url(short_id):
     result = url.to_dict()
     return jsonify(
         {
-            'url': result["original"]
+            'url': result['original']
         }), 200
 
 
